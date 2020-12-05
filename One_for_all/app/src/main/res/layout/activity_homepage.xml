@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="0dp"
+    android:saveEnabled="false"
+    android:background="#241332"
+    tools:context=".HomePageActivity"
+    tools:ignore="ExtraText">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/back_chart" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="שלום"
+            android:textSize="30dp"
+            android:layout_marginRight="70dp"
+            android:layout_marginTop="80dp"
+            android:textColor="#000000"/>
+
+    <TextView
+        android:id="@+id/txvUserNameId"
+        android:layout_width="231dp"
+        android:layout_height="583dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginLeft="95dp"
+        android:text="Tehila"
+        android:textColor="#000000"
+        android:textSize="30dp" />
+    />
+
+</RelativeLayout>

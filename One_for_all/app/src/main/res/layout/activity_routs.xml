@@ -3,28 +3,58 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="30dp"
     android:paddingTop="0dp"
-    android:paddingRight="30dp"
-    android:paddingBottom="50dp"
     android:saveEnabled="false"
+    android:background="#241332"
     tools:context=".RoutsActivity">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/back_rout" />
 
     <Button
-        android:id="@+id/btnAddGroupId"
+        android:id="@+id/btnHomePageID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
         android:layout_marginBottom="30dp"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="140dp"
+        android:paddingRight="30dp"
+        android:gravity="center"
+        android:clickable="true"
+        android:text="דף הבית"
+        android:textSize="20dp"
+        android:background="@drawable/mybutton"
+        android:drawableRight="@drawable/ic_baseline_home_24" />
+
+    <Button
+        android:id="@+id/btnAddGroupId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnHomePageID"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="30dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:paddingRight="30dp"
         android:gravity="center"
         android:clickable="true"
         android:text="הוספת קבוצה"
-        android:background="#03DAC5"/>
+        android:textSize="20dp"
+        android:drawableRight="@drawable/ic_baseline_people_24"
+        android:background="@drawable/mybutton"
+        />
 
     <Button
         android:id="@+id/btnUpdateId"
@@ -36,13 +66,19 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_marginBottom="30dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:paddingRight="30dp"
         android:gravity="center"
         android:clickable="true"
         android:text="עדכון"
-        android:background="#03DAC5"/>
+        android:textSize="20dp"
+        android:drawableRight="@drawable/ic_baseline_calendar_today_24"
+        android:background="@drawable/mybutton"
+        />
 
     <Button
-        android:id="@+id/btnStatusId"
+        android:id="@+id/btnMyGroupId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/btnUpdateId"
@@ -50,10 +86,37 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginBottom="50dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="30dp"
+        android:paddingRight="30dp"
         android:gravity="center"
         android:clickable="true"
-        android:text="סטאטוס"
-        android:background="#03DAC5"/>
+        android:text="הקבוצות שלי"
+        android:textSize="20dp"
+        android:drawableRight="@drawable/ic_baseline_person_24"
+        android:background="@drawable/mybutton"
+        />
+
+    <Button
+        android:id="@+id/btnUpdateSick1Id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnMyGroupId"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="50dp"
+        android:paddingRight="30dp"
+        android:gravity="center"
+        android:clickable="true"
+        android:text="עדכון חולה"
+        android:textSize="20dp"
+        android:drawableRight="@drawable/ic_baseline_update_24"
+        android:background="@drawable/mybutton"
+        />
 
 </RelativeLayout>

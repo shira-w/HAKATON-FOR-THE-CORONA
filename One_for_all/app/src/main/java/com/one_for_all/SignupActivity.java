@@ -31,11 +31,12 @@ public class SignupActivity extends AppCompatActivity {
     Context context1=this;
     Users users;
     Users chec_users;
+    private int permition=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
-        setContentView( R.layout.signup_activity );
+        setContentView( R.layout.activity_logup);
 
         // Hide the Activity Status Bar
         getWindow().setFlags( WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -46,7 +47,7 @@ public class SignupActivity extends AppCompatActivity {
         }
         catch (NullPointerException e){}
 
-        btnSignup = findViewById(R.id.btnSignupId);
+        btnSignup = findViewById(R.id.btnSignUpID);
         edtUserNamed = findViewById( R.id.edtUserNamedId);
         edtid = findViewById( R.id.edtId );
         edtPassowrd = findViewById( R.id.edtPassowrdId );
@@ -54,12 +55,12 @@ public class SignupActivity extends AppCompatActivity {
         users = new Users();
         chec_users=new Users();
         reff = FirebaseDatabase.getInstance().getReference().child( "Users" );
-        btnSignup.setOnClickListener(  new View.OnClickListener() {
+        btnSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 users.setUserName( edtUserNamed.getText().toString().trim() );
                 users.setPassword( edtPassowrd.getText().toString().trim() );
-                users.setId(Integer.parseInt(edtid.getText().toString().trim()));
+                users.setidUser(Integer.parseInt(edtid.getText().toString().trim()));
 
                 //If one of the details is missing:
                 if (edtUserNamed.getText().toString().equals( "" )) {
@@ -79,40 +80,40 @@ public class SignupActivity extends AppCompatActivity {
                     check_id = true;
                 }
                 if(check_username && check_password  && check_id){
+
+                    reff.child(edtid.getText().toString().trim()).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                        public void onDataChange(DataSnapshot snapshot) {
+                            if (snapshot.exists()) {
+                                Toast.makeText(SignupActivity.this, "id alredy exits", Toast.LENGTH_LONG).show();
+                        }
+                            else {
+                                users.setUserName( edtUserNamed.getText().toString().trim() );
+                                users.setPassword( edtPassowrd.getText().toString().trim() );
+                                users.setidUser(Integer.parseInt(edtid.getText().toString().trim()));
+
+
+                                reff.child( edtid.getText().toString().trim() ).setValue( users );
+                                SharedPreferences sharedPref = getSharedPreferences("myPref",(Context.MODE_PRIVATE));
+                                SharedPreferences.Editor editor = sharedPref.edit();
+                                editor.putString("USERNAME",edtUserNamed.getText().toString().trim());
+                                editor.putString("PASSWORD",edtPassowrd.getText().toString().trim());
+                                editor.commit();
+//                              setDefaults("USERNAME",edtUserNamed.getText().toString().trim(), context1);
+//                              setDefaults("PASSWORD",edtPassowrd.getText().toString().trim(), context1);
+                                Toast.makeText( SignupActivity.this, "insert!", Toast.LENGTH_SHORT ).show();
+                                finish();
+                            }
+
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
                     Intent intent = new Intent(getBaseContext(), RoutsActivity.class);
                     startActivity(intent);
-                    Toast.makeText(SignupActivity.this, "i!!!!!!!!", Toast.LENGTH_LONG).show();
-                reff.child(edtid.getText().toString().trim()).addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot snapshot) {
-                        if (snapshot.exists()) {
-                            Toast.makeText(SignupActivity.this, "id alredy exits", Toast.LENGTH_LONG).show();
-                        }
-                        else {
-                           // Toast.makeText(SignupActivity.this, "@@@@", Toast.LENGTH_LONG).show();
-                            users.setUserName( edtUserNamed.getText().toString().trim() );
-                            users.setPassword( edtPassowrd.getText().toString().trim() );
-                            users.setId(Integer.parseInt(edtid.getText().toString().trim()));
-
-                            reff.child( edtid.getText().toString().trim() ).setValue( users );
-                            SharedPreferences sharedPref = getSharedPreferences("myPref",(Context.MODE_PRIVATE));
-                            SharedPreferences.Editor editor = sharedPref.edit();
-                            editor.putString("USERNAME",edtUserNamed.getText().toString().trim());
-                            editor.putString("PASSWORD",edtPassowrd.getText().toString().trim());
-                            editor.commit();
-//                            setDefaults("USERNAME",edtUserNamed.getText().toString().trim(), context1);
-//                            setDefaults("PASSWORD",edtPassowrd.getText().toString().trim(), context1);
-                            Toast.makeText( SignupActivity.this, "insert!", Toast.LENGTH_SHORT ).show();
-                            finish();
-                        }
-
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
 
                 }
 

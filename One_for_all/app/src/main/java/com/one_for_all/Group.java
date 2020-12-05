@@ -6,7 +6,6 @@ public class Group {
     private String nameGroup;
     private int QRcode;
     private String password_group;
-    private boolean actPermition;
     private String nameCategory;
     private String color;
     private int numUser;
@@ -26,10 +25,6 @@ public class Group {
 
     public String getPassword_group() {
         return password_group;
-    }
-
-    public boolean isActPermition() {
-        return actPermition;
     }
 
     public String getCategory() {
@@ -64,9 +59,6 @@ public class Group {
         this.password_group = password_group;
     }
 
-    public void setActPermition(boolean actPermition) {
-        this.actPermition = actPermition;
-    }
 
     public void setCategory(String category) {
         this.nameCategory = category;
@@ -86,4 +78,15 @@ public class Group {
 
     public Group(){
     }
+    public Group(int idGroup, String nameGroup, int QRcode, String password_group, boolean actPermition, String nameCategory, String color, int numUser, int numsick) {
+        this.idGroup = idGroup;
+        this.nameGroup = nameGroup;
+        this.QRcode = QRcode;
+        this.password_group = password_group;
+        this.nameCategory = nameCategory;
+        this.color = color;
+        this.numUser = numUser;
+        this.numsick = numsick;
+    }
+
 }

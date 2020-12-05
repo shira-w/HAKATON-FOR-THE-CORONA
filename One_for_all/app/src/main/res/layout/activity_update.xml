@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="30dp"
+    android:paddingTop="0dp"
+    android:paddingRight="30dp"
+    android:paddingBottom="50dp"
+    android:saveEnabled="false"
+    tools:context=".UpdateActivity">
+
+
+    <TextView
+        android:id="@+id/txvScanID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="34dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="100dp"
+        android:textSize="20dp"
+        android:text="סרוק ברקוד"
+        android:textColor="#F44336"/>
+
+    <Button
+        android:id="@+id/btnOkId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="50dp"
+        android:gravity="center"
+        android:clickable="true"
+        android:text="אישור"
+        android:background="#03DAC5"/>
+
+</RelativeLayout>

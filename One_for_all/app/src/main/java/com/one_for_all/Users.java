@@ -5,8 +5,9 @@ public class Users {
     private String userName;
     private String password;
     private Boolean permition;
-    private int id;
+    private int idUser;
     private Boolean sick;
+    private String color;
 
     public String getUserName() {
         return userName;
@@ -28,16 +29,20 @@ public class Users {
         return permition;
     }
 
+    public String getColor() {
+        return color;
+    }
+
     public void setPermition(Boolean permition) {
         this.permition = permition;
     }
 
-    public int getId() {
-        return id;
+    public int getidUser() {
+        return idUser;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setidUser(int idUser) {
+        this.idUser = idUser;
     }
 
     public void setSick(Boolean sick) {
@@ -48,7 +53,22 @@ public class Users {
         return sick;
     }
 
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+
     public Users(){
 
     }
-}
+
+
+    public Users(String userName, String password, Boolean permition, int id, Boolean sick) {
+        this.userName = userName;
+        this.password = password;
+        this.permition = permition;
+        this.idUser = id;
+        this.sick = sick;
+    }
+
+    }

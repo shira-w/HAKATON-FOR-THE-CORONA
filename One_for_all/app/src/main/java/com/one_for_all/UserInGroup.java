@@ -11,6 +11,13 @@ public class UserInGroup {
     private DateFormat start;
     private DateFormat end;
 
+    public UserInGroup(int id, int idUser, int idGroup, DateFormat start, DateFormat end) {
+        this.id = id;
+        this.idUser = idUser;
+        this.idGroup = idGroup;
+        this.start = start;
+        this.end = end;
+    }
     public int getId() {
         return id;
     }

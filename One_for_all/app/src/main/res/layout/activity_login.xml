@@ -5,56 +5,46 @@
     android:layout_height="match_parent"
     android:paddingTop="0dp"
     android:saveEnabled="false"
-    android:background="#241332"
-    tools:context=".MainActivity">
+    android:background="#f2f2f2"
+    tools:context=".SigninActivity">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:adjustViewBounds="true"
-        android:alpha="0.4"
         android:scaleType="centerCrop"
-        android:src="@drawable/background" />
+        android:src="@drawable/back_sign2" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text=" אחד בשביל כולם\nוכולם בשביל אחד"
-        android:textSize="30dp"
-        android:layout_marginRight="90dp"
-        android:layout_marginTop="200dp"
-        android:textColor="#ffff"
-        />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="רק ביחד נשמור על יקירנו"
-        android:textSize="18dp"
-        android:layout_marginRight="103dp"
-        android:layout_marginTop="280dp"
-        android:textColor="#ffff"
-        />
-
-    <Button
-        android:id="@+id/btnSignInID"
+    <EditText
+        android:id="@+id/edtUserId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="540dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginLeft="15dp"
-        android:gravity="center"
-        android:background="@drawable/mybutton"
-        android:clickable="true"
-        android:textColor="#FFFFFF"
-        android:text="הרשם"
-        android:textSize="20dp"
-        />
+        android:layout_marginLeft="70dp"
+        android:layout_marginRight="70dp"
+        android:layout_marginTop="200dp"
+        android:focusable="true"
+        android:hint="מספר זהות"
+        android:textColorHint="#808080" />
+
+    <EditText
+        android:id="@+id/edtPassowrdId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edtUserId"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="70dp"
+        android:layout_marginRight="70dp"
+        android:ems="10"
+        android:hint="סיסמא"
+
+        android:textColorHint="#808080" />
+
 
     <Button
         android:id="@+id/btnSignUpID"
@@ -68,8 +58,9 @@
         android:layout_marginLeft="15dp"
         android:layout_marginBottom="30dp"
         android:layout_marginRight="15dp"
+        android:layout_marginTop="400dp"
         android:gravity="center"
-        android:background="@drawable/button_pink"
+        android:background="@drawable/mybutton"
         android:clickable="true"
         android:textColor="#FFFFFF"
         android:text="התחבר"

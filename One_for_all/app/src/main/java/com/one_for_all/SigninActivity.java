@@ -35,7 +35,7 @@ public class SigninActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
-        setContentView( R.layout.signin_activity );
+        setContentView( R.layout.activity_login );
 
         // Hide the Activity Status Bar
         getWindow().setFlags( WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN );
@@ -45,52 +45,57 @@ public class SigninActivity extends AppCompatActivity {
         } catch (NullPointerException e) {
         }
 
-        btnSignup = findViewById( R.id.btnSignupId );
+        btnSignup = findViewById( R.id.btnSignUpID );
         edtid = findViewById( R.id.edtId );
         edtPassowrd = findViewById( R.id.edtPassowrdId );
 
         users = new Users();
         chec_users = new Users();
+
         reff = FirebaseDatabase.getInstance().getReference().child( "Users" );
         btnSignup.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                users.setPassword( edtPassowrd.getText().toString().trim() );
-                users.setId( Integer.parseInt( edtid.getText().toString().trim() ) );
+
+
+                Intent intent = new Intent( getBaseContext(), RoutsActivity.class );
+                startActivity( intent );
+//                users.setPassword( edtPassowrd.getText().toString().trim() );
+//                users.setidUser( Integer.parseInt( edtid.getText().toString().trim() ) );
 
                 //If one of the details is missing:
-                if (edtPassowrd.getText().toString().equals( "" )) {
-                    Toast.makeText( SigninActivity.this, "Missing password", Toast.LENGTH_LONG ).show();
-                    check_password = false;
-                } else
-                    check_password = true;
-                if (edtid.getText().toString().equals( "" )) {
-                    Toast.makeText( SigninActivity.this, "Missing id", Toast.LENGTH_LONG ).show();
-                    check_id = false;
-                } else {
-                    check_id = true;
-                }
-                if (check_password && check_id) {
-                    Intent intent = new Intent( getBaseContext(), MainActivity.class );
-                    startActivity( intent );
-                    reff.child( edtid.getText().toString().trim() ).addListenerForSingleValueEvent( new ValueEventListener() {
-                        @Override
-                        public void onDataChange(DataSnapshot snapshot) {
-                            if (!snapshot.exists()) {
-                                Intent intent = new Intent( getBaseContext(), RoutsActivity.class );
-                                startActivity( intent );
-                            } else {
-                                Toast.makeText( SigninActivity.this, "incorect", Toast.LENGTH_LONG ).show();
-                            }
-
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-
-                        }
-                    } );
-                }
+//                if (edtPassowrd.getText().toString().equals( "" )) {
+//                    Toast.makeText( SigninActivity.this, "Missing password", Toast.LENGTH_LONG ).show();
+//                    check_password = false;
+//                } else
+//                    check_password = true;
+//                if (edtid.getText().toString().equals( "" )) {
+//                    Toast.makeText( SigninActivity.this, "Missing id", Toast.LENGTH_LONG ).show();
+//                    check_id = false;
+//                } else {
+                  //  check_id = true;
+              //  }
+//                if (check_password && check_id) {
+//                    reff.child( edtid.getText().toString().trim() ).addListenerForSingleValueEvent( new ValueEventListener() {
+//                        @Override
+//
+//                        public void onDataChange(DataSnapshot snapshot) {
+//                            if (snapshot.exists()) {
+//                                Intent intent = new Intent( getBaseContext(), RoutsActivity.class );
+//                                startActivity( intent );
+//                            } else {
+//                                Toast.makeText( SigninActivity.this, "incorect", Toast.LENGTH_LONG ).show();
+//                                // just if id is exists but if the password is diferents its login.
+//                            }
+//
+//                        }
+//
+//                        @Override
+//                        public void onCancelled(@NonNull DatabaseError error) {
+//
+//                        }
+//                    } );
+//                }
 
             }
         } );
